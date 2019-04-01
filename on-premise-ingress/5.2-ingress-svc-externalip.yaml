@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingress-nginx-externalip
+  namespace: ingress-nginx
+spec:
+  ports:
+    - name: service
+      port: 80
+      targetPort: 80
+  selector:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+  externalIPs:
+#  - 10.43.0.30
+#  - 10.43.0.31
+#  - 10.43.0.32
