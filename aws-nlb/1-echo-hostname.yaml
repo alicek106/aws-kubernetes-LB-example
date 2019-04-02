@@ -19,7 +19,8 @@ spec:
     spec:
       containers:
         - name: hostname-service-container
-          image: alicek106/rr-test:echo-hostname
+          image: alicek106/ingress-annotation-test:0.0
           ports:
-          - containerPort: 80
+          - name: flask-port
+            containerPort: 5000
           imagePullPolicy: Always
