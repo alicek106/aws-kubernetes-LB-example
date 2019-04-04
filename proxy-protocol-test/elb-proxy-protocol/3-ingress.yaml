@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress-nlb-tls
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: {{NLB_PUBLIC_DNS}}
+    http:
+      paths:
+      - path: /echo-hostname
+        backend:
+          serviceName: hostname-service
+          servicePort: 80

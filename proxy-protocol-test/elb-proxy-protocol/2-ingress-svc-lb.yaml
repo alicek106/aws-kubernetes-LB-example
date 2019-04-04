@@ -1,0 +1,19 @@
+# Load Balancer built in Kubernetes (NLB) is alpha. It is recommended to use another way.
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingress-nginx
+  namespace: ingress-nginx
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: "*"
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+    - name: service
+      port: 80
+      targetPort: 80
+  selector:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+
+  type: LoadBalancer
