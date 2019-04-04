@@ -14,6 +14,6 @@ spec:
   selector:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx
-  externalTrafficPolicy: Cluster
-#  externalTrafficPolicy: Local # If set to Cluster, Original Source IP is not preserved (service is served.. still)
+#  externalTrafficPolicy: Cluster
+  externalTrafficPolicy: Local # If set to Cluster, Original Source IP is not preserved (service is served.. still)
   type: NodePort
